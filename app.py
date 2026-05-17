@@ -1,6 +1,12 @@
-import streamlit as st
+import sys
 import os
 from pathlib import Path
+
+# Ensure the project root is on sys.path so `src` is importable
+# whether running locally or on Streamlit Cloud.
+sys.path.insert(0, str(Path(__file__).parent))
+
+import streamlit as st
 from src.document_processor import DocumentProcessor
 from src.vector_store import VectorStore
 from src.rag_engine import RAGEngine
